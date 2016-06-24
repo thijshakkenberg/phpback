@@ -71,8 +71,22 @@ class Action extends CI_Controller{
             $this->email->message($message);    
 
             $this->email->send();
+
+            // auto login after register
+            $result = $this->get->login($email, $pass);
+
+            if ($result != 0) {
+                $user = $this->get->getUser($result);
+                $this->get->setSessionUserValues($user);
+                $this->get->setSessionCookie();
+                header('Location: ' . base_url() . 'home/');
+            }
+            else {
+                header('Location: ' . base_url() . 'home/login/errorlogin/');
+            }
+            // end auto login after register
             
-            header('Location: '. base_url() .'home/login/register');
+            //header('Location: '. base_url() .'home/login/register');
         }
         else header('Location: '. base_url() .'home/register/exists');
         
