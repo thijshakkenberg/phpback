@@ -5,7 +5,7 @@
 			<li class="active"><?php echo $category->name; ?></li>
 		</ol></div>
 		<div>
-			<h5 style="color:#2C3E50;"><?php echo $category->name; ?></h5>
+			<h5 style="color:#2C3E50;"><img src="<?= base_url(); ?>public/img/category/<?php echo $category->name; ?>.png" style="width: auto; height: auto; max-height: 60px; max-width: 60px; display: inline-block;"></img>&nbsp;<?php echo $category->name; ?></h5>
 			<span style="color:#34495E"><small><?php echo $category->description; ?></small></span>
 		</div>
 		<table id="ideastable" class="table table-condensed">
