@@ -73,6 +73,8 @@ class Action extends CI_Controller{
             $this->email->send();
 
             // auto login after register
+            session_start();
+            
             $result = $this->get->login($email, $pass);
 
             if ($result != 0) {
